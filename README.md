@@ -1,19 +1,29 @@
+<div align="center">
+  <h1>🛠️ Utils Java 通用开发工具集</h1>
+  <p>
+    <img src="https://img.shields.io/badge/Java-21-orange" alt="Java">
+    <img src="https://img.shields.io/badge/Spring%20Boot-4.0.1-green" alt="Spring Boot">
+    <img src="https://img.shields.io/badge/License-MIT-blue" alt="License">
+    <img src="https://img.shields.io/badge/Build-Passing-brightgreen" alt="Build">
+  </p>
+</div>
+
 本仓库是基于 Spring Boot 4.0.1 和 Java 21 构建的通用工具库集合，采用 Maven 进行项目管理。项目旨在记录和沉淀日常开发中积累的高频技术解决方案，涵盖了从基础工具到分布式中间件的各类增强组件。
 
-#### Common 基础模块
+## 🧩 Common 基础模块
 
 `com` 模块包含通用小工具的封装，那些不足以单成一个模块或不好归于其他模块的工具都将归于此模块，包括 JsonUtil 等。
 
 JsonUtil 对 Jackson 进行封装，屏蔽了底层受检异常，简化了调用代码，为上层业务提供统一的序列化和反序列化支持。
 
-#### MQ 消息队列模块
+## 📨 MQ 消息队列模块
 
 `mq` 模块包含围绕消息队列进行封装的各类工具。
 
 `rabbit` 包基于 RabbitMQ 的 ConfirmCallback 和 ReturnsCallback 回调机制，实现了消息从生产者到交换机以及再到队列的全链路可靠投递，支持延迟消息、失败重试、消息撤回等功能。
 
 
-#### Redis 缓存模块
+## ⚡  Redis 缓存模块
 
 `redis` 模块包含围绕 redis 进行封装的各类工具，通过高度抽象的注解与工具类降低复杂缓存逻辑的实现成本。
 
@@ -21,7 +31,7 @@ JsonUtil 对 Jackson 进行封装，屏蔽了底层受检异常，简化了调�
 
 `bloom` 包提供对布隆过滤器的管理能力，封装了过滤器的初始化与维护逻辑。
 
-#### Code 验证码服务模块
+## 🛡️ Code 验证码服务模块
 
 `code` 模块构建了全场景的验证码服务体系，覆盖了图形、消息及行为验证三种形态。
 
@@ -31,15 +41,15 @@ JsonUtil 对 Jackson 进行封装，屏蔽了底层受检异常，简化了调�
 
 行为验证码对接了阿里云智能验证服务，通过 BehaviorCodeManager 封装了滑块拼图等行为验证的后端校验逻辑，为高安全等级的业务场景提供了标准的防护支持。
 
-#### File 文件处理模块
+## 📑 File 文件处理模块
 
 `file` 模块包含文件处理相关的工具。
 
 `easyexcel` 包对 Alibaba EasyExcel 进行封装，通过实现 ReadListener 接口，采用模板方法模式，抽取并统一了文件的导入导出逻辑，采用流式读取，支持批量处理。
 
-#### OSS 对象存储模块
+## ☁️ OSS 对象存储模块
 
-oss 模块屏蔽底层存储平台的差异，实现多云存储的统一管理。OssManager 作为统一业务入口，支持在多种云存储之间灵活切换，降低了业务代码与具体存储厂商的耦合度。
+`oss` 模块屏蔽底层存储平台的差异，实现多云存储的统一管理。OssManager 作为统一业务入口，支持在多种云存储之间灵活切换，降低了业务代码与具体存储厂商的耦合度。
 
 `minio` 包基于 MinIO SDK 封装了标准的文件操作逻辑，重点实现了文件上传与预授权访问链接生成功能，通过短期有效的签名 URL 保障了私有存储资源的安全性。
 
