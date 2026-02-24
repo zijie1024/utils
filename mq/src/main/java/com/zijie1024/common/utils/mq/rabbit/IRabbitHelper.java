@@ -1,6 +1,6 @@
 package com.zijie1024.common.utils.mq.rabbit;
 
-import com.zijie1024.common.utils.mq.json.JsonUtil;
+import com.zijie1024.common.utils.com.json.JsonUtil;
 import org.springframework.amqp.core.Message;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;

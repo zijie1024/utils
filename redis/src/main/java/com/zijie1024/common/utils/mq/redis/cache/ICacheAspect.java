@@ -1,7 +1,7 @@
 package com.zijie1024.common.utils.mq.redis.cache;
 
 
-import com.zijie1024.common.utils.mq.json.JsonUtil;
+import com.zijie1024.common.utils.com.json.JsonUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.aspectj.lang.JoinPoint;

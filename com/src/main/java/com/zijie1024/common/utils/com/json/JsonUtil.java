@@ -1,4 +1,4 @@
-package com.zijie1024.common.utils.mq.json;
+package com.zijie1024.common.utils.com.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
