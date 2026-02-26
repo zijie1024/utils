@@ -1,0 +1,13 @@
+cosid:
+  namespace: ${spring.application.name}
+  machine:
+    enabled: true # 可选，当需要使用雪花算法时，需要设置为 true
+    distributor:
+      type: redis
+  snowflake:
+    enabled: true
+    zone-id: Asia/Shanghai
+    epoch: 1716480000000        # 2024-05-24
+    share:
+      clock-sync: true          # 开启始终回拨同步
+      friendly: true

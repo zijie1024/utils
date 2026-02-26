@@ -23,6 +23,17 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
+        <!--cosid-->
+        <dependency>
+            <groupId>me.ahoo.cosid</groupId>
+            <artifactId>cosid-spring-redis</artifactId>
+            <version>2.6.8</version>
+        </dependency>
+        <dependency>
+            <groupId>me.ahoo.cosid</groupId>
+            <artifactId>cosid-spring-boot-starter</artifactId>
+            <version>2.6.8</version>
+        </dependency>
     </dependencies>
 
 </project>
