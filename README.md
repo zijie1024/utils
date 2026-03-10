@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🛠️ Utils Java 通用开发工具集</h1>
+  <h1>🛠️ Utils Java Common Development Toolkit</h1>
   <p>
     <img src="https://img.shields.io/badge/Java-21-orange" alt="Java">
     <img src="https://img.shields.io/badge/Spring%20Boot-4.0.1-green" alt="Spring Boot">
@@ -8,49 +8,48 @@
   </p>
 </div>
 
-本仓库是基于 Spring Boot 4.0.1 和 Java 21 构建的通用工具库集合，采用 Maven 进行项目管理。项目旨在记录和沉淀日常开发中积累的高频技术解决方案，涵盖了从基础工具到分布式中间件的各类增强组件。
+This repository is a collection of common utility libraries built on Spring Boot 4.0.1 and Java 21, managed using Maven. The project aims to document and consolidate high-frequency technical solutions accumulated during daily development, covering various enhanced components from basic utilities to distributed middleware.
 
-## 🧩 Common 基础模块
+## 🧩 Common Module
 
-`com` 模块包含通用小工具的封装，那些不足以单成一个模块或不好归于其他模块的工具都将归于此模块，包括 JsonUtil 等。
+The `com` module encapsulates general-purpose utilities. Tools that are not substantial enough to form a standalone module or do not logically fit into other modules are grouped here, including `JsonUtil`, etc.
 
-JsonUtil 对 Jackson 进行封装，屏蔽了底层受检异常，简化了调用代码，为上层业务提供统一的序列化和反序列化支持。
+`JsonUtil` acts as a wrapper for Jackson, abstracting away underlying checked exceptions, simplifying calling code, and providing unified serialization and deserialization support for the business layer.
 
-## 📨 MQ 消息队列模块
+## 📨 MQ Message Queue Module
 
-`mq` 模块包含围绕消息队列进行封装的各类工具。
+The `mq` module contains various utilities built around message queues.
 
-`rabbit` 包基于 RabbitMQ 的 ConfirmCallback 和 ReturnsCallback 回调机制，实现了消息从生产者到交换机以及再到队列的全链路可靠投递，支持延迟消息、失败重试、消息撤回等功能。
+The `rabbit` package implements full-link reliable message delivery from producers to exchanges and down to queues, based on RabbitMQ's `ConfirmCallback` and `ReturnsCallback` mechanisms. It supports delayed messages, failure retries, message recalls, and other features.
 
+## ⚡ Redis Cache Module
 
-## ⚡  Redis 缓存模块
+The `redis` module contains various utilities built around Redis, reducing the implementation cost of complex caching logic through highly abstracted annotations and utility classes.
 
-`redis` 模块包含围绕 redis 进行封装的各类工具，通过高度抽象的注解与工具类降低复杂缓存逻辑的实现成本。
+The `cache` package implements distributed caching via AOP + Redis, providing the `@ICache` annotation for quick integration of caching capabilities. It adopts the Cache Aside pattern, integrates Redisson distributed locks to prevent cache breakdown, and supports caching null values to mitigate cache penetration.
 
-`cache` 包通过 AOP + Redis 实现分布式缓存，提供 @ICache 注解以便快速接入缓存能力。采用旁路缓存策略，集成 Redisson 分布式锁以防止缓存击穿，支持缓存空值以缓解缓存穿透。
+The `bloom` package provides management capabilities for Bloom Filters, encapsulating their initialization and maintenance logic.
 
-`bloom` 包提供对布隆过滤器的管理能力，封装了过滤器的初始化与维护逻辑。
+## 🛡️ Code Verification Service Module
 
-## 🛡️ Code 验证码服务模块
+The `code` module builds a comprehensive verification service system, covering three forms: image CAPTCHAs, message OTPs (One-Time Passwords), and behavioral CAPTCHAs.
 
-`code` 模块构建了全场景的验证码服务体系，覆盖了图形、消息及行为验证三种形态。
+**Image CAPTCHAs** are implemented based on the EasyCaptcha component. It supports flexible switching between PNG and GIF formats and allows developers to customize character types, such as pure digits, arithmetic formulas, or Chinese characters.
 
-图形验证码基于 EasyCaptcha 组件实现，不仅支持 PNG 和 GIF 两种格式的灵活切换，还允许开发者自定义纯数字、算术公式或中文字符等多种字符类型。
+**Message OTPs** are deeply integrated with Aliyun SMS services and QQ Mail SMTP services. Through the asynchronous sending interface provided by `MsgCodeManager`, the sending logic is decoupled from the main business thread using a thread pool. This effectively reduces blocking risks and improves system response performance.
 
-消息验证码深度整合了阿里云短信服务与 QQ 邮箱 SMTP 服务，通过 MsgCodeManager 提供的异步发送接口，利用线程池将发送逻辑从业务主线程剥离，有效降低了阻塞风险并提升了系统响应性能。
+**Behavioral CAPTCHAs** connect with Aliyun's Intelligent Verification service. The `BehaviorCodeManager` encapsulates the backend validation logic for behavioral verifications like slider puzzles, providing standard security protection for high-risk business scenarios.
 
-行为验证码对接了阿里云智能验证服务，通过 BehaviorCodeManager 封装了滑块拼图等行为验证的后端校验逻辑，为高安全等级的业务场景提供了标准的防护支持。
+## 📑 File Processing Module
 
-## 📑 File 文件处理模块
+The `file` module contains utilities related to file processing.
 
-`file` 模块包含文件处理相关的工具。
+The `easyexcel` package acts as a wrapper for Alibaba EasyExcel. By implementing the `ReadListener` interface and utilizing the Template Method pattern, it extracts and unifies file import and export logic, employing stream reading and supporting batch processing.
 
-`easyexcel` 包对 Alibaba EasyExcel 进行封装，通过实现 ReadListener 接口，采用模板方法模式，抽取并统一了文件的导入导出逻辑，采用流式读取，支持批量处理。
+## ☁️ OSS Object Storage Module
 
-## ☁️ OSS 对象存储模块
+The `oss` module abstracts the differences between underlying storage platforms to achieve unified management of multi-cloud storage. `OssManager`, serving as the unified business entry point, supports flexible switching among various cloud storage providers, reducing the coupling between business code and specific storage vendors.
 
-`oss` 模块屏蔽底层存储平台的差异，实现多云存储的统一管理。OssManager 作为统一业务入口，支持在多种云存储之间灵活切换，降低了业务代码与具体存储厂商的耦合度。
+The `minio` package encapsulates standard file operation logic based on the MinIO SDK, focusing on file uploading and generating pre-authorized access links. It ensures the security of private storage resources through short-term signed URLs.
 
-`minio` 包基于 MinIO SDK 封装了标准的文件操作逻辑，重点实现了文件上传与预授权访问链接生成功能，通过短期有效的签名 URL 保障了私有存储资源的安全性。
-
-`qiniu` 包集成了七牛云对象存储服务，提供了高效的文件上传通道以及私有空间下载凭证的签发能力，为公有云环境下的资源管理提供了成熟的解决方案。
+The `qiniu` package integrates Qiniu Cloud Object Storage Service, providing efficient file upload channels and the ability to issue download credentials for private spaces. It offers a mature solution for resource management in public cloud environments.
