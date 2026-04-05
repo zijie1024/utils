@@ -1,7 +1,7 @@
-package com.zijie1024.common.utils.mq.redis.example;
+package com.zijie1024.common.utils.redis.example;
 
-import com.zijie1024.common.utils.mq.redis.bloom.BloomFilterManager;
-import com.zijie1024.common.utils.mq.redis.cache.ICache;
+import com.zijie1024.common.utils.redis.bloom.BloomFilterManager;
+import com.zijie1024.common.utils.redis.cache.ICache;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

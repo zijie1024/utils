@@ -1,4 +1,4 @@
-package com.zijie1024.common.utils.mq.redis.cache;
+package com.zijie1024.common.utils.redis.cache;
 
 
 import com.zijie1024.common.utils.com.json.JsonUtil;

@@ -1,4 +1,4 @@
-package com.zijie1024.common.utils.mq.redis.bloom;
+package com.zijie1024.common.utils.redis.bloom;
 
 import jakarta.annotation.PostConstruct;
 import lombok.Data;

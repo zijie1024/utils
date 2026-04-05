@@ -1,4 +1,4 @@
-package com.zijie1024.common.utils.mq.redis.cache;
+package com.zijie1024.common.utils.redis.cache;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
