@@ -26,6 +26,12 @@ The `rabbit` package implements full-link reliable message delivery from produce
 
 The `redis` module contains various utilities built around Redis, reducing the implementation cost of complex caching logic through highly abstracted annotations and utility classes.
 
+The `limiter` package provides a high-performance distributed rate limiter based on Redis and Lua. Using polymorphic annotations and the Strategy pattern, it supports Fixed Window, Sliding Window, Token Bucket, and Leaky Bucket algorithms. It enables fine-grained traffic control by global API or individual IP to handle traffic spikes and ensure system availability.
+
+The `idempotent` package provides an idempotency validation component based on AOP and Redis, accurately intercepting duplicate requests by dynamically extracting pre-generated tokens and leveraging Redis's atomic DEL operations, while incorporating a built-in exception rollback and compensation mechanism to gracefully support client retries.
+
+The `lock` package provides an annotation-driven distributed lock component based on AOP and Redisson, featuring dynamic Key resolution via SpEL and support for multiple lock types through the factory pattern, delivering non-invasive distributed locking capabilities for business logic.
+
 The `cache` package implements distributed caching via AOP + Redis, providing the `@ICache` annotation for quick integration of caching capabilities. It adopts the Cache Aside pattern, integrates Redisson distributed locks to prevent cache breakdown, and supports caching null values to mitigate cache penetration.
 
 The `bloom` package provides management capabilities for Bloom Filters, encapsulating their initialization and maintenance logic.
